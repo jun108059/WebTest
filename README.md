@@ -17,6 +17,12 @@
 
 ---
 
+## Assignment #1
+
+[선택한 주식 종목 테이블 만들기](/StockPriceTable/)
+
+---
+
 <div align="center">
   <h4>made by Young-jun Park<br/><img src="https://media.giphy.com/media/L1cg88lFnD1l7T2e93/giphy.gif" width="30">2020<img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30">
   </h4>
