@@ -3,47 +3,97 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Running JavaScript</title>
+    <title>201401254#1</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="my-style.css" />
   </head>
   <body>
-    <table style="width: 100%">
-      <thead>
-        <tr>
-          <th style="width: 10%">Date</th>
-          <th style="width: 18%">LG</th>
-          <th style="width: 18%">NAVER</th>
-          <th style="width: 18%">SK</th>
-          <th style="width: 18%">삼성전자</th>
-          <th style="width: 18%">카카오</th>
-        </tr>
-      </thead>
+    <table
+      class="table table-striped header-fixed table-condensed"
+      style="width: 100%"
+    >
+      <thead id="thead"></thead>
       <tbody id="tbody"></tbody>
     </table>
 
     <script src="utils.js"></script>
     <script src="csvdata_all.js"></script>
     <script>
-      const selNames = ['LG', 'NAVER', 'SK', '삼성전자', '카카오'];
+      // 201401254
+
       const csv = getCsvData();
       //console.log(csv);
       const json = csv2json(csv);
-      //console.log(json[0]);
-      const sel = filterName(json, 'name', selNames);
+      console.log(json);
+
+      // xx == 14, yy == 12, zz == 24
+      const selNames = [
+        "NAVER",
+        "카카오",
+        json[14]["name"],
+        json[12]["name"],
+        json[24]["name"],
+      ];
+      console.log(selNames);
+      const sel = filterName(json, "name", selNames);
+      console.log(sel);
       const rows = groupByDate(sel);
       console.log(rows);
 
-      for (let i = 0; i < rows.length; i++) {// row count
-        const da = rows[i]['date'];
-        const cols = rows[i]['cols'];
+      let th =
+        "<tr>" +
+        '<th style="width: 10%; text-align:left;">' +
+        "Line No." +
+        "</th>" +
+        '<th style="width: 10%; text-align:left;">' +
+        "Date" +
+        "</th>";
+      console.log(selNames.length);
+      for (let i = 0; i < selNames.length; i++) {
+        th = th + '<th style="width: 15%;">' + selNames[i] + "</th>";
+        console.log(selNames[i], th);
+      }
+      th += "</tr>";
+      console.log(th);
+      $("#thead").append(th);
 
-        let tabrow = '<tr>' + '<td style="width: 10%">' + da + '</td>';
-        for (let j = 0; j < cols.length; j++) {// col count
-          tabrow =
-            tabrow + '<td style="width:18%; text-align:center;">' + cols[j]['price'] + '</td>';
+      for (let i = 0; i < rows.length; i++) {
+        // row count
+        const da = rows[i]["date"];
+        const tempCols = rows[i]["cols"];
+        // const cols = rows[i]["cols"];
+        let cols = []
+        let count = 0;
+        for (let k = 0; k < 5; k++){
+          for (let j = 0; j < tempCols.length; j++) {
+            if (selNames[count] === tempCols[j]["name"]){
+                console.log(selNames);
+                cols.push(tempCols[j])
+                count++;
+            }
+          }
         }
-        tabrow += '</tr>';
-        $('#tbody').append(tabrow);// using jQuery
+        console.log(cols);
+
+        let tabrow = "<tr>" + '<td style="width: 10%" text-align:center;>' + (i + 1) + "</td>" + '<td style="width: 10%" text-align:center;>' + da + "</td>";
+        let k = 0;
+        for (let j = 0; j < cols.length; j++) {
+          // col count
+          for (let l = 0; l <= 5; l++){
+            if (j+l < cols.length && selNames[k] === cols[j+l]["name"]){
+              tabrow =
+                tabrow +
+                '<td style="width:15%; text-align:center;">' +
+                cols[j+l]["price"] +
+                "</td>";
+              k++;
+              console.log(selNames[k]);
+            }
+          }
+
+        }
+        tabrow += "</tr>";
+        $("#tbody").append(tabrow); // using jQuery
       }
     </script>
   </body>
