@@ -21,6 +21,10 @@
 
 [선택한 주식 종목 테이블 만들기](/StockPriceTable/)
 
+## Assignment #2
+
+[home 수정](/StockPriceQuery/)
+
 ---
 
 <div align="center">
