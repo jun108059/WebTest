@@ -22,6 +22,16 @@
 
 4. Submit는 POST로 처리
 
+## 과제 분석
+
+- Python Flask Controller 동작 원리 이해하기
+- 같은 Controller에 대해 `POST` 방식과 `GET` 방식의 차이 이해 하기
+  - POST로 들어와도 redirect 된 이후 GET Method 호출한다.
+- Session의 개념 이해하기
+- Jinja 템플릿 엔진 이해하기
+
 ## Result
 
-[img](../img/Result01.png)
+[img](/img/Result03.png)  
+
+[img](/img/Result02.png)
