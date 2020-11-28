@@ -23,7 +23,7 @@
 
 ## Assignment #2
 
-[home 수정](/StockPriceQuery/)
+[Query를 활용한 POST와 GET, Session 방식 이해](/StockPriceQuery/)
 
 ---
 
