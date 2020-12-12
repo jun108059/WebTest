@@ -62,7 +62,7 @@
       </div>
       <div class="row">
         <div id="priceTable"></div>
-        <table style="width: 100%">
+        <table class="table table-striped header-fixed table-condensed" style="width: 100%">
           <thead id="thead"></thead>
           <tbody id="tbody"></tbody>
         </table>
@@ -127,7 +127,7 @@
           let head = json.head;
           let rows = json.rows;
           //$('#priceTable').html('<div>' + JSON.stringify(json) + '</div>');
-          let tabHeadRow = '<td style="text-align:right;">date</td>';
+          let tabHeadRow = '<td style="text-align:right;">Line No.' + '<td style="text-align:right;">Date</td>';
           let selCols = [];
           for (let j = 0; j < head.length; j++) {
             //console.log('head[j]=', head[j]);
@@ -145,7 +145,7 @@
             // row count
             const da = rows[i][0];
 
-            let tabrow = '<tr>' + '<td style="text-align:right;">' + da + '</td>';
+            let tabrow = '<tr>' + '<td style="text-align:right;">' + (i + 1) + '</td>' + '<td style="text-align:right;">' + da + '</td>';
             for (let j = 0; j < selCols.length; j++) {
               // col count
               tabrow += '<td style="text-align:right;">' + rows[i][selCols[j]] + '</td>';
