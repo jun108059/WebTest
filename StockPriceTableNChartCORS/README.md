@@ -32,6 +32,8 @@ Report#3에 이어 Responsive Column을 추가하고, Delete 기능을 구현한
    - Responsive로 화면이 줄어들면 1 Column으로 표시
 2. Delete Chart와 Delete Table 기능(마지막 추가 된 Element 삭제)추가
 
+- svg 파일을 만들기 위해서 temp 폴더를 static 아래에 추가
+
 ### Result#4
 
-![img](/img/Result05.png)
+![img](/img/Result04.gif)
