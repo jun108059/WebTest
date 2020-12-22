@@ -33,6 +33,8 @@
 
 [Responsive Column 생성과 Delete 기능 구현](/StockPriceTableNChartCORS/)
 
+<img src="/img/Result04.gif" width="50%" height="50%">
+
 ---
 
 <div align="center">
